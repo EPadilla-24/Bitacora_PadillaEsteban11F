@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitácora Esteban Padilla</title>
+    
+    <!-- Favicon con ruta relativa para que funcione en cualquier PC -->
+    <link rel="icon" type="image/png" href="recursos/img/logocap2.png">
+
+    <style>
+        /* Estilos Generales */
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: rgb(59, 56, 56);
+            background-color: #f0f4f8; /* Un fondo gris azulado muy suave para resaltar las tarjetas */
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        /* Encabezado con efecto Neón */
+        header {
+            padding: 30px 20px;
+            background-color: rgb(63, 128, 169);
+        }
+
+        header h1 {
+            margin: 0;
+            color: white;
+            text-shadow: 
+                0 0 5px #d8e7ff, 
+                0 0 10px #d8e7ff, 
+                0 0 20px #006eff, 
+                0 0 30px #006eff, 
+                0 0 40px #006eff;
+            font-size: 2.5rem;
+        }
+
+        /* Contenedor Principal */
+        main {
+            flex: 1;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 95%;
+        }
+
+        h4 {
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        /* Clase para las Tarjetas (Elegantes) */
+        .semana {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #403f6b;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .semana:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .semana h3 {
+            margin-top: 0;
+            color: #403f6b;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .semana p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Visores Multimedia (PDF y Video) con tamaño simétrico */
+        .pdf-preview, .video-preview {
+            width: 100%;
+            height: 300px; /* Misma altura para ambos */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 15px;
+            background-color: #333;
+        }
+
+        .video-preview {
+            object-fit: contain; /* Ajusta el video sin deformarlo */
+        }
+
+        /* Botón de descarga/enlace */
+        .btn-pdf {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #403f6b;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn-pdf:hover {
+            background-color: #00d2ff;
+        }
+
+        /* Footer y Logo con efecto Zoom */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            border-top: 1px solid rgba(64, 63, 107, 0.3);
+            background-color: rgb(63, 128, 169);
+            color: white;
+        }
+
+        .logo-colegio {
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            height: 50px;
+        }
+
+        .logo-colegio:hover {
+            transform: scale(1.25);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bitácora Segunda y Tercera Unidad</h1>
+    </header>
+
+    <main>
+        <h4>Contenido de la página WEB</h4>
+
+        <!-- SEMANA 1 -->
+        <div class="semana">
+            <h3>Semana 1: Introducción a Arduino</h3>
+            <p><strong>Descripción:</strong> En esta semana exploramos los conceptos fundamentales de la plataforma Arduino y su entorno de desarrollo.</p>
+            
+            <iframe 
+                src="recursos/documentos/Introducción Arduino Esteban Padilla 11F 1.pdf" 
+                class="pdf-preview">
+            </iframe>
+            
+            <a href="recursos/documentos/Introducción Arduino Esteban Padilla 11F 1.pdf" class="btn-pdf" target="_blank">Ver PDF completo</a>
+        </div>
+
+        <!-- SEMANA 2 -->
+        <div class="semana">
+            <h3>Semana 2: Modificaciones con la IA a mi CSS</h3>
+            <p><strong>Descripción:</strong> Aplicación de estilos avanzados mediante IA y simulación de un circuito LED en Tinkercad.</p>
+            
+            <video class="video-preview" controls>
+                <source src="C:\Users\Alumno Capouilliez\Documents\Padilla11F\recursos\img\VideoCircuito.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de videos.
+            </video>
+            
+            <a href="C:\Users\Alumno Capouilliez\Documents\Padilla11F\recursos\img\VideoCircuito.mp4" class="btn-pdf" target="_blank">Descargar Video de Simulación</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <span>@ERPB24 - Esteban Padilla</span>
+        <img src="https://www.capouilliez.edu.gt/assets/img/logo.png" class="logo-colegio" alt="Logo Colegio">
+    </footer>
+
+</body>
+</html>
