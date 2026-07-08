@@ -137,67 +137,59 @@
             transform: scale(1.25);
         }
 
-        /* Esto va dentro de tu <style> */
-        .galeria-imagenes {
-            display: flex;
-            gap: 15px;          /* Espacio de separación entre ambas fotos */
-            margin-top: 15px;
-            width: 100%;
-        }
+       /* Contenedor principal de la galería: mantiene la fila horizontal */
+.galeria-imagenes {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+    width: 100%;
+}
 
-        .img-ficha {
-            flex: 1;            /* Hace que compartan el espacio 50/50 */
-            height: 300px;      /* Mantiene la altura exacta de tus otras fichas */
-            object-fit: cover;  /* Ajusta y recorta la imagen perfectamente para que no se estire */
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-
-        /* Alinea cada imagen con su respectivo botón abajo */
+/* Fuerza a que cada bloque (Imagen + Botón) ocupe la mitad exacta de la ficha */
 .columna-imagen {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra el botón horizontalmente */
+    align-items: center; /* Centra el botón debajo de la foto */
+    gap: 10px;           /* Espacio entre la foto y el botón */
 }
 
-/* El fondo oscuro de la pantalla completa */
+/* La imagen de la ficha respetando estrictamente los 300px de alto */
+.img-ficha {
+    width: 100%;
+    height: 300px;       /* Mantiene la simetría con el PDF y Video */
+    object-fit: cover;   /* Evita que la foto se estire o se deforme */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ESTILOS DE LA PANTALLA COMPLETA (OCULTA POR DEFECTO) */
 .modal-pantalla {
-    display: none; /* Oculto por defecto */
+    display: none;       /* Crucial: Esto evita que la imagen gigante se vea abajo */
     position: fixed;
-    z-index: 1000; /* Se asegura de estar por encima de TODO (header, footer, etc) */
+    z-index: 9999;       /* Se superpone a toda la página */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Fondo negro transparente */
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro elegante */
     justify-content: center;
     align-items: center;
 }
 
-/* La imagen expandida dentro de la pantalla completa */
 .contenido-modal {
     max-width: 85%;
     max-height: 85%;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
-    animation: zoomEfecto 0.3s ease; /* Efecto de aparición suave */
+    box-shadow: 0 4px 25px rgba(255, 255, 255, 0.2);
 }
 
-/* Animación para que la foto se agrande suavemente al abrirse */
-@keyframes zoomEfecto {
-    from { transform: scale(0.7); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-/* El botón de cerrar (X) en la esquina superior */
 .cerrar-modal {
     position: absolute;
     top: 20px;
     right: 35px;
-    color: #fff;
+    color: white;
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
@@ -261,20 +253,22 @@
             </div>
     </div>
         <!-- PRUEBA DE PANTALLA COMPLETA-->
-        <div class="semana">
+    <div class="semana">
     <h3>Semana 4: Circuito Físico y Programación de LEDs</h3>
     <p><strong>Descripción:</strong> Implementación física de un circuito con tres LEDs utilizando valores aleatorios generados desde Arduino IDE para controlar la lógica.</p>
     
     <div class="galeria-imagenes">
+        
         <div class="columna-imagen">
-            <img src="imagen circuito semana 4.jpg" class="img-ficha" id="imgCircuito" alt="Circuito físico con Arduino">
+            <img src="imagen circuito semana 4.jpg" class="img-ficha" alt="Circuito físico con Arduino">
             <button class="btn-pdf" onclick="abrirPantallaCompleta('imagen circuito semana 4.jpg')">Ver en pantalla completa</button>
         </div>
         
         <div class="columna-imagen">
-            <img src="codigo arduino ide semana 4.jpg" class="img-ficha" id="imgCodigo" alt="Código en Arduino IDE">
+            <img src="codigo arduino ide semana 4.jpg" class="img-ficha" alt="Código en Arduino IDE">
             <button class="btn-pdf" onclick="abrirPantallaCompleta('codigo arduino ide semana 4.jpg')">Ver en pantalla completa</button>
         </div>
+
     </div>
 </div>
 
@@ -291,19 +285,17 @@
 
 </body>
 <script>
-    // Función para mostrar la pantalla completa
     function abrirPantallaCompleta(rutaImagen) {
         var modal = document.getElementById("miModal");
         var imgModal = document.getElementById("imgModalElemento");
         
-        modal.style.display = "flex"; // Muestra la ventana oscura
-        imgModal.src = rutaImagen;    // Le pasa la foto correspondiente
+        modal.style.display = "flex"; // Activa la ventana negra
+        imgModal.src = rutaImagen;    // Carga la foto seleccionada
     }
 
-    // Función para cerrar la pantalla completa al hacer clic afuera o en la X
     function cerrarPantallaCompleta() {
         var modal = document.getElementById("miModal");
-        modal.style.display = "none"; // Vuelve a ocultar la ventana
+        modal.style.display = "none"; // Oculta la ventana de nuevo
     }
 </script>
 </html>
