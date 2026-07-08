@@ -136,6 +136,24 @@
         .logo-colegio:hover {
             transform: scale(1.25);
         }
+
+        /* Esto va dentro de tu <style> */
+        .galeria-imagenes {
+            display: flex;
+            gap: 15px;          /* Espacio de separación entre ambas fotos */
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .img-ficha {
+            flex: 1;            /* Hace que compartan el espacio 50/50 */
+            height: 300px;      /* Mantiene la altura exacta de tus otras fichas */
+            object-fit: cover;  /* Ajusta y recorta la imagen perfectamente para que no se estire */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
     </style>
 </head>
 <body>
@@ -190,17 +208,9 @@
     <p><strong>Descripción:</strong> Implementación física de un circuito con tres LEDs utilizando valores aleatorios generados desde Arduino IDE para controlar la lógica.</p>
     
     <div class="galeria-imagenes">
-        <a href="imagen circuito semana 4.jpg" target="_blank" style="flex: 1;">
-            <img src="https://colegiocapouilliez-my.sharepoint.com/:i:/g/personal/p01086-1_capouilliez_edu_gt/IQCE8FcFefw4Q7wwdEAksm2zARRfy0dx9M7DIeYNl_4IFdM?e=7KJASh" class="img-ficha" alt="Circuito físico con Arduino">
-        </a>
-        
-        <a href="codigo arduino ide semana 4.jpg" target="_blank" style="flex: 1;">
-            <img src="https://colegiocapouilliez-my.sharepoint.com/:i:/g/personal/p01086-1_capouilliez_edu_gt/IQCfyDQEvnkiRYhGuwtHAFbvAcx8-poVi32mfgJ53ZUFzsw?e=QcBY0B" class="img-ficha" alt="Código en Arduino IDE">
-        </a>
+        <img src="imagen circuito semana 4.jpg" class="img-ficha" alt="Circuito físico con Arduino">
+        <img src="codigo arduino ide semana 4.jpg" class="img-ficha" alt="Código en Arduino IDE">
     </div>
-    
-    <br>
-    <small style="color: #888; display: block; text-align: center;">💡 Tip: Haz clic sobre cualquier imagen para verla en pantalla completa.</small>
 </div>
     </main>
 
