@@ -154,6 +154,54 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
+
+        /* Alinea cada imagen con su respectivo botón abajo */
+.columna-imagen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el botón horizontalmente */
+}
+
+/* El fondo oscuro de la pantalla completa */
+.modal-pantalla {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000; /* Se asegura de estar por encima de TODO (header, footer, etc) */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo negro transparente */
+    justify-content: center;
+    align-items: center;
+}
+
+/* La imagen expandida dentro de la pantalla completa */
+.contenido-modal {
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+    animation: zoomEfecto 0.3s ease; /* Efecto de aparición suave */
+}
+
+/* Animación para que la foto se agrande suavemente al abrirse */
+@keyframes zoomEfecto {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* El botón de cerrar (X) en la esquina superior */
+.cerrar-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
     </style>
 </head>
 <body>
@@ -212,6 +260,28 @@
                 <img src="codigo arduino ide semana 4.jpg" class="img-ficha" alt="Código en Arduino IDE">
             </div>
     </div>
+        <!-- PRUEBA DE PANTALLA COMPLETA-->
+        <div class="semana">
+    <h3>Semana 4: Circuito Físico y Programación de LEDs</h3>
+    <p><strong>Descripción:</strong> Implementación física de un circuito con tres LEDs utilizando valores aleatorios generados desde Arduino IDE para controlar la lógica.</p>
+    
+    <div class="galeria-imagenes">
+        <div class="columna-imagen">
+            <img src="imagen circuito semana 4.jpg" class="img-ficha" id="imgCircuito" alt="Circuito físico con Arduino">
+            <button class="btn-pdf" onclick="abrirPantallaCompleta('imagen circuito semana 4.jpg')">Ver en pantalla completa</button>
+        </div>
+        
+        <div class="columna-imagen">
+            <img src="codigo arduino ide semana 4.jpg" class="img-ficha" id="imgCodigo" alt="Código en Arduino IDE">
+            <button class="btn-pdf" onclick="abrirPantallaCompleta('codigo arduino ide semana 4.jpg')">Ver en pantalla completa</button>
+        </div>
+    </div>
+</div>
+
+<div id="miModal" class="modal-pantalla" onclick="cerrarPantallaCompleta()">
+    <span class="cerrar-modal">&times;</span>
+    <img class="contenido-modal" id="imgModalElemento">
+</div>
     </main>
 
     <footer>
@@ -220,4 +290,20 @@
     </footer>
 
 </body>
+<script>
+    // Función para mostrar la pantalla completa
+    function abrirPantallaCompleta(rutaImagen) {
+        var modal = document.getElementById("miModal");
+        var imgModal = document.getElementById("imgModalElemento");
+        
+        modal.style.display = "flex"; // Muestra la ventana oscura
+        imgModal.src = rutaImagen;    // Le pasa la foto correspondiente
+    }
+
+    // Función para cerrar la pantalla completa al hacer clic afuera o en la X
+    function cerrarPantallaCompleta() {
+        var modal = document.getElementById("miModal");
+        modal.style.display = "none"; // Vuelve a ocultar la ventana
+    }
+</script>
 </html>
